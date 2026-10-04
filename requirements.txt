@@ -1,5 +1,87 @@
-SpeechRecognition>=3.10.0
-pyttsx3>=2.90
-python-dotenv>=1.0.1
-openai>=1.40.0
-requests>=2.31.0
+# Jarvis
+
+Jarvis is a Python-based voice and command assistant that can:
+- listen to spoken commands
+- speak responses back using text-to-speech
+- open browsers or local apps
+- list project files
+- run shell commands
+- check git status
+- summarize a project
+- power a lightweight web dashboard
+
+## Features
+
+- Wake-word style voice detection using the spoken command text
+- Local command execution for commands like `run ls` and `run python app.py`
+- Browser launching for Google, YouTube, and GitHub
+- Project overview generation from Python, Markdown, and config files
+- Git repository status checks
+- Optional OpenAI-powered responses when `OPENAI_API_KEY` is provided
+- Simple Flask dashboard for browser-based control
+
+## Quick start
+
+1. Create a virtual environment:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate   # Linux/macOS
+   .venv\Scripts\activate      # Windows
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Copy the environment example:
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Set an OpenAI key if desired:
+   ```env
+   OPENAI_API_KEY=your_key_here
+   OPENAI_MODEL=gpt-4o-mini
+   ```
+
+## Run the CLI assistant
+
+```bash
+python jarvis.py
+```
+
+For text-based interaction without a microphone:
+
+```bash
+python jarvis.py --text
+```
+
+## Run the web dashboard
+
+```bash
+python jarvis.py --web
+```
+
+Then visit:
+
+```text
+http://127.0.0.1:5000
+```
+
+## Example commands
+
+- "Jarvis, hello"
+- "Jarvis, what time is it?"
+- "Jarvis, open Google"
+- "Jarvis, list files"
+- "Jarvis, run git status"
+- "Jarvis, summarize project"
+- "Jarvis, open VS Code"
+- "Jarvis, exit"
+
+## Notes
+
+- Speech recognition depends on your OS and microphone hardware.
+- If no API key is configured, Jarvis falls back to local logic.
+- This is an extensible starter project intended for learning and automation.
